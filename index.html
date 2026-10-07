@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#111827" />
+    <title>霓虹疾跑</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas id="game" aria-label="霓虹疾跑游戏画面"></canvas>
+
+      <section class="hud" aria-live="polite">
+        <div class="brand">霓虹疾跑 <span>NEON RUSH</span></div>
+        <div class="stats">
+          <div><small>分数</small><strong id="score">000000</strong></div>
+          <div><small>金币</small><strong class="coin-stat"><i></i><span id="coins">0</span></strong></div>
+          <div><small>速度</small><strong id="speed">1.0×</strong></div>
+        </div>
+        <button id="pauseBtn" class="icon-button" aria-label="暂停">Ⅱ</button>
+      </section>
+
+      <section id="startScreen" class="overlay visible">
+        <div class="panel hero-panel">
+          <p class="eyebrow">穿越霓虹城 · 突破最高分</p>
+          <h1>霓虹<br /><em>疾跑</em></h1>
+          <p class="intro">闪避路障、跃过列车，在城市天际线下收集每一枚金币。</p>
+          <button id="startBtn" class="primary">开始疾跑 <span>→</span></button>
+          <div class="controls">
+            <div><kbd>←</kbd><kbd>→</kbd><span>切换轨道</span></div>
+            <div><kbd>↑</kbd><span>跳跃</span></div>
+            <div><kbd>↓</kbd><span>下滑</span></div>
+          </div>
+          <p class="touch-hint">手机端滑动屏幕即可操作</p>
+        </div>
+      </section>
+
+      <section id="pauseScreen" class="overlay">
+        <div class="panel compact">
+          <p class="eyebrow">城市暂时安静了</p>
+          <h2>已暂停</h2>
+          <button id="resumeBtn" class="primary">继续游戏</button>
+        </div>
+      </section>
+
+      <section id="gameOverScreen" class="overlay">
+        <div class="panel compact">
+          <p class="eyebrow">本次疾跑结束</p>
+          <h2>差一点！</h2>
+          <div class="result-grid">
+            <div><small>本局分数</small><strong id="finalScore">0</strong></div>
+            <div><small>最高纪录</small><strong id="bestScore">0</strong></div>
+            <div><small>收集金币</small><strong id="finalCoins">0</strong></div>
+          </div>
+          <button id="restartBtn" class="primary">再跑一次 <span>↻</span></button>
+        </div>
+      </section>
+
+      <div class="scanlines"></div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
